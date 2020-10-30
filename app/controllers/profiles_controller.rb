@@ -9,7 +9,7 @@ class ProfilesController < ApplicationController
   def create
     # render plain: params[:profile].inspect
 
-    @profile = Profile.new(params.require(:profile).permit(:first_name, :last_name, :title, :logline, :phone))
+    @profile = Profile.new(params.require(:profile).permit(:first_name, :last_name, :title, :logline, :phone, :city))
 
     @profile.save
     redirect_to @profile
@@ -19,5 +19,5 @@ end
 
 private
   def profile_params
-    params.require(:profile).permit(:first_name, :last_name, :title, :logline, :phone)
+    params.require(:profile).permit(:first_name, :last_name, :title, :logline, :phone, :city)
   end
