@@ -4,15 +4,30 @@
 
 <%= form_with scope: :profile, url: profiles_path, local: true do |form| %>
   <p>
+    <%= form.label :first_name %><br>
+    <%= form.text_field :first_name %>
+  </p>
+ 
+  <p>
+    <%= form.label :last_name %><br>
+    <%= form.text_field :last_name %>
+  </p>
+ 
+   <p>
     <%= form.label :title %><br>
     <%= form.text_field :title %>
   </p>
  
   <p>
-    <%= form.label :text %><br>
-    <%= form.text_area :text %>
+    <%= form.label :logline %><br>
+    <%= form.text_area :logline %>
   </p>
- 
+
+  <p>
+    <%= form.label :phone %><br>
+    <%= form.text_field :phone %>
+  </p>
+
   <p>
     <%= form.submit %>
   </p>
