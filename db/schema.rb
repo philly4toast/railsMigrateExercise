@@ -10,7 +10,15 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_11_04_170506) do
+ActiveRecord::Schema.define(version: 2020_11_05_110535) do
+
+  create_table "profile_social_media", force: :cascade do |t|
+    t.integer "profile_id"
+    t.integer "social_media_id"
+    t.string "url"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+  end
 
   create_table "profiles", force: :cascade do |t|
     t.string "first_name"
@@ -25,12 +33,9 @@ ActiveRecord::Schema.define(version: 2020_11_04_170506) do
   end
 
   create_table "social_media", force: :cascade do |t|
-    t.string "facebook"
-    t.string "instagram"
-    t.string "linkedin"
-    t.string "other"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.string "type"
   end
 
 end
