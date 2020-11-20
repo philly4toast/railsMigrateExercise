@@ -8,9 +8,16 @@ class ProfilesController < ApplicationController
 
   def create
     # render plain: params[:profile].inspect
-
-    @profile = Profile.new(params.require(:profile).permit(:first_name, :last_name, :title, :logline, :phone, :city, :state))
-
+    social_media_params = params.extract!(:facebook, :instagram, :linkedin, :other)
+    binding.pry
+    @profile = Profile.new(params.require(:profile).permit(
+      :first_name, 
+      :last_name, 
+      :title, 
+      :logline, 
+      :phone, 
+      :city, 
+      :state))
     @profile.save
     redirect_to @profile
   end
